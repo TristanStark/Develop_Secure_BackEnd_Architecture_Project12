@@ -1,0 +1,19 @@
+[project]
+name = "django-secured-orm-private"
+version = "0.1.0"
+description = "Secure internal CRM for Epic Events built with Django, Django REST Framework, and PostgreSQL."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "Django>=4.2,<5.0",
+    "djangorestframework>=3.15,<4.0",
+    "djangorestframework-simplejwt>=5.3,<6.0",
+    "django-filter>=24.0,<26.0",
+    "psycopg2-binary>=2.9,<3.0",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
