@@ -31,6 +31,7 @@ class ContractStatusSerializer(serializers.ModelSerializer):
 class ClientSerializer(serializers.ModelSerializer):
     """Serializer for client CRUD operations."""
 
+    sales_contact = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), required=False)
     sales_contact_detail = UserSummarySerializer(source="sales_contact", read_only=True)
 
     class Meta:
@@ -55,6 +56,7 @@ class ClientSerializer(serializers.ModelSerializer):
 class ContractSerializer(serializers.ModelSerializer):
     """Serializer for contract CRUD operations."""
 
+    sales_contact = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), required=False)
     client_name = serializers.CharField(source="client.full_name", read_only=True)
     client_email = serializers.EmailField(source="client.email", read_only=True)
     sales_contact_detail = UserSummarySerializer(source="sales_contact", read_only=True)
@@ -92,6 +94,10 @@ class ContractSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     """Serializer for event CRUD operations."""
 
+    client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all(), required=False)
+    support_contact = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), required=False, allow_null=True
+    )
     client_name = serializers.CharField(source="client.full_name", read_only=True)
     client_email = serializers.EmailField(source="client.email", read_only=True)
     support_contact_detail = UserSummarySerializer(source="support_contact", read_only=True)

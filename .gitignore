@@ -1,13 +1,34 @@
-# Python-generated files
+# Python
 __pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# Virtual environments
-.venv
+# Django
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+
 deliverables/
 project/
 Project 12.pdf

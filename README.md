@@ -2,8 +2,6 @@
 
 Secure internal CRM built with **Python 3**, **Django**, **Django REST Framework**, and **PostgreSQL**.
 
-The application implements the Project 12 requirements:
-
 - Django Admin as the management front end.
 - PostgreSQL configured through environment variables in `epic_events/settings.py`.
 - Django ORM models for clients, contract statuses, contracts, and events.
@@ -73,6 +71,14 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## Run tests
+
+The default configuration targets PostgreSQL. A SQLite-only test settings module is included for fast local checks:
+
+```bash
+python manage.py test --settings=epic_events.test_settings
+```
+
 ## Environment variables
 
 The application is configured by environment variables. The defaults target a local PostgreSQL database named `epic_events`.
@@ -120,7 +126,3 @@ Search contracts by client name:
 curl http://127.0.0.1:8000/api/contracts/?client_name=Dupont \
   -H "Authorization: Bearer <access-token>"
 ```
-
-## Deliverables
-
-The `deliverables/` folder contains a text ERD and the repository link expected by the project brief.
